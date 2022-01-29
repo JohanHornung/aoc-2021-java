@@ -3,17 +3,17 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class DayOne {
-    public static void main(String[] args) throws Exception {
-        String path = "input/input1.txt";
-        System.out.println(PartOne(path)); // 1713
-        System.out.println(PartTwo(path)); // 1734
-    };
-    public static int PartOne(String path) throws FileNotFoundException {
-        // PART - 1
+    public static void main(String[] args) throws FileNotFoundException {
         // file instance
-        File input = new File(path);
-        // using Scanner.read()
+        File input = new File("input/input1.txt");
         Scanner sc = new Scanner(input);
+        
+        System.out.println(partOne(sc)); // 1713
+        System.out.println(partTwo(sc)); // 1734
+    };
+    public static int partOne(Scanner sc) {
+        // PART - 1
+        
         // reading until whole content is read
         ArrayList<Integer> measurements = new ArrayList<>();
         int increase = 0;
@@ -27,14 +27,10 @@ public class DayOne {
         sc.close();
         return increase;
     };
-    public static int PartTwo(String path) throws FileNotFoundException {
-        // file instance
-        File input = new File(path);
-        // using Scanner.read()
-        Scanner sc = new Scanner(input);
-        // reading until whole content is read
+    public static int partTwo(Scanner sc) {
         ArrayList<Integer> measurements = new ArrayList<>();
         int increase = 0;
+        // reading until whole content is read
         while (sc.hasNextInt()) {
             measurements.add(sc.nextInt());
         }
